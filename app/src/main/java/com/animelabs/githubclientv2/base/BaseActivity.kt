@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.animelabs.githubclientv2.utilities.NetworkUtils
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_base.*
 
 abstract class BaseActivity : AppCompatActivity() {
+
+    val disposable = CompositeDisposable()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
@@ -34,5 +38,10 @@ abstract class BaseActivity : AppCompatActivity() {
         } else {
             noInternetTextView.visibility = View.GONE
         }
+    }
+
+    override fun onDestroy() {
+        disposable.dispose()
+        super.onDestroy()
     }
 }

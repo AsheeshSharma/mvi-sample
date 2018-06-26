@@ -1,6 +1,6 @@
 package com.animelabs.githubclientv2.base
 
-import rx.Observable
+import io.reactivex.Observable
 
 interface IMviViewModel<I: BaseMviIntent, S: BaseMviViewState> {
     fun processIntents(intents : Observable<I>)

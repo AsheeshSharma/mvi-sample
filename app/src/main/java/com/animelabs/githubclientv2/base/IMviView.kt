@@ -1,6 +1,6 @@
 package com.animelabs.githubclientv2.base
 
-import rx.Observable
+import io.reactivex.Observable
 
 
 interface IMviView<I : BaseMviIntent, in S: BaseMviViewState> {
