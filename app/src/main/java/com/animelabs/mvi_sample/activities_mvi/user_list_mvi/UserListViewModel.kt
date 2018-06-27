@@ -23,7 +23,7 @@ class UserListViewModel constructor(private val actionProcessor: UserListActionP
 
     fun compose(): Observable<UserListViewState> {
         return intentSubject
-                .map { this::actionFromIntent }
+                .map { this.actionFromIntent(it) }
                 .compose(actionProcessor.transfromFromAction())
                 .scan(UserListViewState.idle(), reducer)
                 .distinctUntilChanged()

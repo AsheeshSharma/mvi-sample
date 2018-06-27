@@ -1,9 +1,6 @@
 package com.animelabs.mvi_sample.activities_mvi.user_list_mvi
 
 import com.animelabs.mvi_sample.data.GithubRepository
-import com.animelabs.mvi_sample.data.models.UserItemModel
-import com.animelabs.mvi_sample.data.models.UserResponse
-import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
