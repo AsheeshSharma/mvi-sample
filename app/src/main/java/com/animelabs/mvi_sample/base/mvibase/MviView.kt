@@ -1,4 +1,4 @@
-package com.animelabs.mvi_sample.mvibase
+package com.animelabs.mvi_sample.base.mvibase
 
 import io.reactivex.Observable
 

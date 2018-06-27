@@ -1,4 +1,4 @@
-package com.animelabs.mvi_sample.activities
+package com.animelabs.mvi_sample.activities_mvi
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
