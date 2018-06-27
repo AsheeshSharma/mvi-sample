@@ -1,4 +1,4 @@
-package com.animelabs.githubclientv2
+package com.animelabs.mvi_sample
 
 import org.junit.Test
 
