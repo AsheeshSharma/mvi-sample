@@ -3,7 +3,7 @@ package com.animelabs.mvi_sample.data.models
 import com.google.gson.annotations.SerializedName
 
 data class UserResponse(
-      @SerializedName("id")
+      @SerializedName("login")
       private var login: String?,
       @SerializedName("id")
       private var id: Int?,

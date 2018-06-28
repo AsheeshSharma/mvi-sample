@@ -6,7 +6,7 @@ import io.reactivex.Observable
 import javax.inject.Inject
 
 class GithubRepositoryImpl @Inject constructor(val githubAPIService: GithubAPIService): GithubRepository {
-    override fun loadPizza(): Observable<UserItemModel> {
-        return githubAPIService.getUsersLists()
+    override fun loadUsers(searchText: String): Observable<UserItemModel> {
+        return githubAPIService.getUsersLists(searchText)
     }
 }

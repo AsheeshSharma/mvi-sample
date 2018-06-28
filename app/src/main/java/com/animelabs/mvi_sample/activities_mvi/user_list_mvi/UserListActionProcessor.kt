@@ -19,7 +19,21 @@ class UserListActionProcessor @Inject constructor(val repository: GithubReposito
     fun loadUsers(): ObservableTransformer<UserListAction.LoadUsersAction, UserListResult.UserListSearchResult> {
         return ObservableTransformer { action ->
             action.flatMap {
-                repository.loadPizza()
+                repository.loadUsers(it.searchText)
+                        .map { selectableItems -> UserListResult.UserListSearchResult.Success(selectableItems.users) }
+                        .cast(UserListResult.UserListSearchResult::class.java)
+                        .onErrorReturn { t -> UserListResult.UserListSearchResult.Failure(t) }
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .startWith(UserListResult.UserListSearchResult.InFlight)
+            }
+        }
+    }
+
+    fun loadUsersMock(): ObservableTransformer<UserListAction.LoadUsersAction, UserListResult.UserListSearchResult> {
+        return ObservableTransformer { action ->
+            action.flatMap {
+                repository.loadUsers(it.searchText)
                         .map { selectableItems -> UserListResult.UserListSearchResult.Success(selectableItems.users) }
                         .cast(UserListResult.UserListSearchResult::class.java)
                         .onErrorReturn { t -> UserListResult.UserListSearchResult.Failure(t) }

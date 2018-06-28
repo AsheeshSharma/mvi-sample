@@ -5,12 +5,11 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.animelabs.mvi_sample.base.mvibase.MviViewModel
 import io.reactivex.Observable
-import io.reactivex.ObservableTransformer
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.BiFunction
 import io.reactivex.subjects.PublishSubject
 
-class UserListViewModel constructor(private val actionProcessor: UserListActionProcessor) : ViewModel(), MviViewModel<UserListIntent, UserListViewState> {
+class UserListViewModel constructor(private val actionProcessor: UserListActionProcessor) : ViewModel(), MviViewModel<UserListIntent.SearchListIntent, UserListViewState> {
 
     private val intentSubject: PublishSubject<UserListIntent> = PublishSubject.create()
     private val statesObservable: Observable<UserListViewState> = compose()
@@ -23,7 +22,7 @@ class UserListViewModel constructor(private val actionProcessor: UserListActionP
 
     fun compose(): Observable<UserListViewState> {
         return intentSubject
-                .map { this.actionFromIntent(it) }
+                .map(this::actionFromIntent)
                 .compose(actionProcessor.transfromFromAction())
                 .scan(UserListViewState.idle(), reducer)
                 .distinctUntilChanged()
@@ -62,7 +61,7 @@ class UserListViewModel constructor(private val actionProcessor: UserListActionP
         }
     }
 
-    override fun processIntents(intents: Observable<UserListIntent>) {
+    override fun processIntents(intents: Observable<UserListIntent.SearchListIntent>) {
         intents.subscribe(intentSubject)
     }
 

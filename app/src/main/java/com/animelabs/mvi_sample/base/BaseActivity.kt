@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.animelabs.mvi_sample.utils.NetworkUtils
+import dagger.android.HasActivityInjector
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_base.*
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : DaggerAppCompatActivity(), HasActivityInjector {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
