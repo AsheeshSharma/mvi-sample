@@ -4,41 +4,41 @@ import com.google.gson.annotations.SerializedName
 
 data class UserResponse(
       @SerializedName("login")
-      private var login: String?,
+       var login: String?,
       @SerializedName("id")
-      private var id: Int?,
+       var id: Int?,
       @SerializedName("avatar_url")
-      private var avatarUrl: String?,
+       var avatarUrl: String?,
       @SerializedName("gravatar_id")
-      private var gravatarId: String?,
+       var gravatarId: String?,
       @SerializedName("url")
-      private var url: String?,
+       var url: String?,
       @SerializedName("html_url")
-      private var htmlUrl: String?,
+       var htmlUrl: String?,
       @SerializedName("followers_url")
-      private var followersUrl: String?,
+       var followersUrl: String?,
       @SerializedName("following_url")
-      private var followingUrl: String?,
+       var followingUrl: String?,
       @SerializedName("gists_url")
-      private var gistsUrl: String?,
+       var gistsUrl: String?,
       @SerializedName("starred_url")
-      private var starredUrl: String?,
+       var starredUrl: String?,
       @SerializedName("subscriptions_url")
-      private var subscriptionsUrl: String?,
+       var subscriptionsUrl: String?,
       @SerializedName("organizations_url")
-      private var organizationsUrl: String?,
+       var organizationsUrl: String?,
       @SerializedName("repos_url")
-      private var reposUrl: String?,
+       var reposUrl: String?,
       @SerializedName("events_url")
-      private var eventsUrl: String?,
+       var eventsUrl: String?,
       @SerializedName("received_events_url")
-      private var receivedEventsUrl: String?,
+       var receivedEventsUrl: String?,
       @SerializedName("type")
-      private var type: String?,
+       var type: String?,
       @SerializedName("site_admin")
-      private var siteAdmin: Boolean?,
+       var siteAdmin: Boolean?,
       @SerializedName("score")
-      private var score: Double?
+       var score: Double?
 )
 
 data class UserItemModel(
